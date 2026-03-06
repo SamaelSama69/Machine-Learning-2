@@ -8,58 +8,65 @@ Learning](https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-orange)
 
 ------------------------------------------------------------------------
 
+# Problem Statement
+
+Build a machine learning model that predicts whether a visa application
+will be **certified or denied** based on applicant and employer
+characteristics.
+
+------------------------------------------------------------------------
+
 # Project Overview
 
-The **EasyVisa Machine Learning Project** focuses on predicting whether
-a visa application will be **Certified or Denied** based on applicant
-and employer attributes.
+The **EasyVisa Machine Learning Project** focuses on predicting visa
+application outcomes using classification models. Immigration agencies
+process thousands of applications annually, making manual review slow
+and inconsistent.
 
-Immigration agencies process thousands of visa applications each year.
-Manual review of these applications is time-consuming and can lead to
-inconsistencies. This project applies **machine learning classification
-techniques** to assist in identifying applications with a higher
-probability of approval.
+This project uses **machine learning algorithms and ensemble methods**
+to analyze historical visa application data and provide **data‑driven
+predictions** that can support immigration decision systems.
 
-The solution analyzes historical visa application data and builds
-predictive models capable of supporting immigration decision-making
-through **data-driven insights**.
+The system aims to:
+
+-   Identify applications with a higher probability of approval
+-   Reduce manual screening effort
+-   Improve decision consistency
+-   Provide insights into factors influencing visa approvals
 
 ------------------------------------------------------------------------
 
 # Business Problem
 
-Organizations seeking foreign workers must submit visa applications
-through immigration authorities. Each application must be evaluated to
-ensure:
+Employers in the United States submit visa applications when hiring
+foreign workers. These applications must ensure:
 
 -   The job cannot be filled by a domestic worker
--   Wages meet prevailing standards
--   The candidate meets qualification requirements
+-   Wages meet prevailing labor standards
+-   Applicants meet qualification requirements
 
-With the rapid growth in applications, automated assistance through
-**machine learning models** can significantly improve efficiency and
-consistency in the decision process.
+As application volumes increase, predictive analytics can help
+authorities **prioritize and evaluate cases more efficiently**.
 
 ------------------------------------------------------------------------
 
 # Project Objectives
 
-The key objectives of this project are:
+The objectives of this project include:
 
--   Perform **data exploration and preprocessing** on visa application
-    data
--   Identify important factors influencing visa approval
--   Train and evaluate multiple **classification algorithms**
--   Optimize models through **hyperparameter tuning**
--   Compare models using standardized performance metrics
--   Select the most reliable model for prediction
+-   Performing **data preprocessing and exploration**
+-   Identifying factors influencing visa approvals
+-   Building multiple **classification models**
+-   Performing **hyperparameter tuning**
+-   Comparing models using evaluation metrics
+-   Selecting the best model for prediction
 
 ------------------------------------------------------------------------
 
 # Dataset Information
 
 The dataset contains **25,480 visa applications** with attributes
-describing both the applicant and the employer.
+describing applicants and employers.
 
 ### Dataset Shape
 
@@ -68,14 +75,14 @@ describing both the applicant and the employer.
 ### Features
 
   Feature                 Description
-  ----------------------- ------------------------------------------------
+  ----------------------- --------------------------------------------
   case_id                 Unique identifier for visa application
-  continent               Continent of applicant
-  education_of_employee   Education level of applicant
-  has_job_experience      Whether the applicant has prior job experience
+  continent               Applicant continent
+  education_of_employee   Applicant education level
+  has_job_experience      Whether the applicant has prior experience
   requires_job_training   Whether job training is required
   no_of_employees         Number of employees in employer company
-  yr_of_estab             Year employer company was established
+  yr_of_estab             Employer company establishment year
   region_of_employment    Intended employment region
   prevailing_wage         Average wage offered
   unit_of_wage            Hourly / Weekly / Monthly / Yearly
@@ -86,13 +93,13 @@ describing both the applicant and the employer.
 
 # Data Preprocessing
 
-The following preprocessing steps were performed:
+Steps performed:
 
 -   Handling incorrect values
 -   Removing irrelevant columns (`case_id`)
 -   Encoding categorical variables
--   Train--test data splitting
--   Feature preparation for machine learning models
+-   Feature preparation for modeling
+-   Splitting dataset into training and testing sets
 
 ### Dataset Split
 
@@ -103,9 +110,25 @@ The following preprocessing steps were performed:
 
 ------------------------------------------------------------------------
 
+# Machine Learning Pipeline
+
+The model development pipeline consists of:
+
+1.  Data Cleaning
+2.  Feature Encoding
+3.  Train/Test Split
+4.  Model Training
+5.  Hyperparameter Tuning
+6.  Model Evaluation
+7.  Model Comparison
+8.  Feature Importance Analysis
+9.  Final Model Selection
+
+------------------------------------------------------------------------
+
 # Machine Learning Models Implemented
 
-Multiple classification algorithms were implemented and compared:
+The following classification algorithms were implemented:
 
 1.  Decision Tree
 2.  Bagging Classifier
@@ -115,8 +138,8 @@ Multiple classification algorithms were implemented and compared:
 6.  XGBoost
 7.  Stacking Classifier
 
-The stacking classifier combines the strengths of several ensemble
-models to improve prediction reliability.
+The **Stacking Classifier** combines predictions from multiple ensemble
+models to improve performance.
 
 ------------------------------------------------------------------------
 
@@ -129,7 +152,8 @@ Models were evaluated using:
 -   Recall
 -   **F1 Score (Primary Metric)**
 
-F1 score was selected because both error types are important:
+F1 score was chosen because both types of prediction errors are
+critical.
 
   Error Type       Impact
   ---------------- -----------------------------------
@@ -164,51 +188,86 @@ F1 score was selected because both error types are important:
   Classifier**                                                
   --------------------------------------------------------------------------
 
+### Final Model
+
+The **Stacking Classifier** produced the most balanced results across
+evaluation metrics.
+
 ------------------------------------------------------------------------
 
 # Feature Importance Insights
 
-Key variables influencing visa certification include:
+Important predictors influencing visa certification include:
 
-1.  Education level of applicant
+1.  Education level
 2.  Prevailing wage
 3.  Prior job experience
 4.  Company size
 5.  Region of employment
 
+These variables strongly affect the probability of visa approval.
+
+------------------------------------------------------------------------
+
+# Key Takeaways
+
+• Ensemble models outperform single decision tree models.\
+• Education level and prevailing wage are the strongest predictors.\
+• Gradient Boosting, Random Forest, and XGBoost provide stable results.\
+• The Stacking Classifier achieved the best balanced performance.
+
+------------------------------------------------------------------------
+
+# How to Run the Project
+
+## 1 Clone the repository
+
+git clone https://github.com/yourusername/EasyVisa-ML-Project.git
+
+## 2 Navigate to the project directory
+
+cd EasyVisa-ML-Project
+
+## 3 Install dependencies
+
+pip install -r requirements.txt
+
+## 4 Run the notebook
+
+Open:
+
+notebooks/EasyVisa_Model.ipynb
+
+------------------------------------------------------------------------
+
+# Repository Structure
+
+EasyVisa-ML-Project │ ├── data │ └── visa_dataset.csv │ ├── notebooks │
+└── EasyVisa_Model.ipynb │ ├── reports │ └── EasyVisa_Project_Report.pdf
+│ ├── README.md
+
 ------------------------------------------------------------------------
 
 # Technologies Used
 
-### Programming
+Programming: - Python
 
--   Python
+Libraries: - Pandas - NumPy - Scikit-learn - XGBoost - Matplotlib -
+Seaborn
 
-### Libraries
-
--   Pandas
--   NumPy
--   Scikit-learn
--   XGBoost
--   Matplotlib
--   Seaborn
-
-### Environment
-
--   Jupyter Notebook
--   Google Colab
+Environment: - Jupyter Notebook - Google Colab
 
 ------------------------------------------------------------------------
 
 # Future Improvements
 
-Potential improvements for this project include:
+Possible future improvements:
 
--   Deploying the model using **Flask / FastAPI**
--   Building an **interactive dashboard**
--   Integrating **SHAP explainability**
--   Creating an **automated ML pipeline**
--   Deploying the model as a **web application**
+-   Deploy model using **FastAPI or Flask**
+-   Build an **interactive dashboard**
+-   Add **SHAP model explainability**
+-   Implement **automated ML pipelines**
+-   Deploy model as a **web application**
 
 ------------------------------------------------------------------------
 
